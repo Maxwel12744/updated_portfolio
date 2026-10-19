@@ -205,7 +205,9 @@
 
           <!-- Contact Form -->
           <div class="contact-card">
-            <form id="contactForm" class="contact-form" novalidate>
+            <form method="post" class="contact-form" novalidate>
+              {% csrf_token %}
+
               <h3
                 style="
                   font-size: 1.4rem;
@@ -273,6 +275,13 @@
 
               <div id="formStatus" class="form-status"></div>
             </form>
+            {% if messages %}
+            <div class="form-status">
+              {% for message in messages %}
+              <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>
