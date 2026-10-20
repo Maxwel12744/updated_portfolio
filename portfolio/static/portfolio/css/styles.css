@@ -979,3 +979,16 @@ footer {
     gap: 1.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .carousel {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-width: 100%;
+  }
+
+  .carousel-slide {
+    object-fit: cover;
+    object-position: center 15%;
+  }
+}
