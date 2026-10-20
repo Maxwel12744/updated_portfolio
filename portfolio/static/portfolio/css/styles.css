@@ -618,7 +618,7 @@ footer {
   position: relative;
   width: 100%;
   max-width: 500px;
-  height: 300px;
+  height: 420px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -637,10 +637,12 @@ footer {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center 15%; /* new: keeps the heads in view */
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
+  background: #0b0b0b;
 }
 
 .carousel-slide.active {
