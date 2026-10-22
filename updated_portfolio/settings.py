@@ -14,27 +14,40 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
+
+# Reads your local .env file (does nothing on Vercel, where there is no .env)
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
-
-
-
 # SECURITY WARNING: don't run with debug turned on in production!
-
-
+# Vercel sets a VERCEL variable on its servers, so this is True on your
+# laptop and False once the site is live.
 DEBUG = 'VERCEL' not in os.environ
 
-# SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ["SECRET_KEY"]
-SECRET_KEY = os.environ.get('SECRET_KEY', 'your-current-dev-key')
-ALLOWED_HOSTS = [h.strip() for h in os.environ.get("ALLOWED_HOSTS", "").split(",") if h.strip()]
+# SECURITY WARNING: keep the secret key used in production secret!
+# Locally it comes from your .env file. On Vercel it comes from the
+# SECRET_KEY environment variable you add in the dashboard.
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    if DEBUG:
+        SECRET_KEY = 'django-insecure-local-development-key-only'
+    else:
+        raise ImproperlyConfigured('The SECRET_KEY environment variable is not set.')
+
+
+# Addresses Django is allowed to serve. Extra ones can still be added through
+# an ALLOWED_HOSTS variable (comma separated), e.g. a custom domain later.
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS += [
+    h.strip() for h in os.environ.get('ALLOWED_HOSTS', '').split(',') if h.strip()
+]
+
+# Lets forms (like your contact form) work over HTTPS on Vercel
+CSRF_TRUSTED_ORIGINS = ['https://*.vercel.app']
 
 
 # Application definition
@@ -46,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portfolio',  # ← Add this line
+    'portfolio',
 ]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -82,18 +95,31 @@ WSGI_APPLICATION = 'updated_portfolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
+#
+# If DB_NAME is set (your local .env), use MySQL as before.
+# If it is not set (Vercel, unless you add a hosted database), fall back to
+# SQLite so the site can still start. Note: Vercel has no permanent disk, so
+# SQLite there is temporary and anything saved to it will not last.
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": os.getenv("DB_NAME"),
-        "USER": os.getenv("DB_USER"),
-        "PASSWORD": os.getenv("DB_PASSWORD"),
-        "HOST": os.getenv("DB_HOST", "127.0.0.1"),
-        "PORT": os.getenv("DB_PORT", "3306"),
-        "OPTIONS": {"charset": "utf8mb4"},
+if os.environ.get("DB_NAME"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": os.getenv("DB_NAME"),
+            "USER": os.getenv("DB_USER"),
+            "PASSWORD": os.getenv("DB_PASSWORD"),
+            "HOST": os.getenv("DB_HOST", "127.0.0.1"),
+            "PORT": os.getenv("DB_PORT", "3306"),
+            "OPTIONS": {"charset": "utf8mb4"},
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "/tmp/db.sqlite3" if "VERCEL" in os.environ else BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
