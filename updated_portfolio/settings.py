@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
+import certifi
+from django.core.exceptions import ImproperlyConfigured
 
 # Reads your local .env file (does nothing on Vercel, where there is no .env)
 load_dotenv()
@@ -113,11 +115,17 @@ if os.environ.get("DB_NAME"):
             "OPTIONS": {"charset": "utf8mb4"},
         }
     }
+    if os.getenv("DB_SSL") == "True":
+        DATABASES["default"]["OPTIONS"]["ssl"] = {"ca": certifi.where()}
+elif "VERCEL" in os.environ:
+    raise ImproperlyConfigured(
+        "DB_NAME is not set. Add the database environment variables in Vercel."
+    )
 else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": "/tmp/db.sqlite3" if "VERCEL" in os.environ else BASE_DIR / "db.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
         }
     }
 
