@@ -1,4 +1,4 @@
-{% load static %} {% load static %}
+{% load static %}
 <!doctype html>
 <html lang="en" data-theme="dark">
   <head>
@@ -15,20 +15,29 @@
     <meta name="robots" content="index, follow" />
     <link
       rel="canonical"
-      href="https://your-username.github.io/portfolio/projects.html"
+      href="https://odhiambo-maxwel.vercel.app{% url 'projects' %}"
     />
 
-    <!-- Open Graph -->
+    <!-- Link preview card (WhatsApp, LinkedIn, Facebook, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Odhiambo Maxwel" />
     <meta property="og:title" content="Projects | Odhiambo Maxwel" />
     <meta
       property="og:description"
       content="Browse Odhiambo Maxwel's portfolio of development and design projects, including web applications, UI redesigns, and open-source contributions."
     />
-    <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://your-username.github.io/portfolio/projects.html"
+      content="https://odhiambo-maxwel.vercel.app{% url 'projects' %}"
     />
+    <meta
+      property="og:image"
+      content="https://odhiambo-maxwel.vercel.app{% static 'portfolio/images/preview.jpg' %}"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Odhiambo Maxwel" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,9 +62,9 @@
         <a href="{% url 'home' %}" class="nav-brand">OM</a>
 
         <div class="nav-links" id="nav-links">
-          <a href="{% url 'home' %}" class="active">Home</a>
+          <a href="{% url 'home' %}">Home</a>
           <a href="{% url 'about' %}">About</a>
-          <a href="{% url 'projects' %}">Projects</a>
+          <a href="{% url 'projects' %}" class="active">Projects</a>
           <a href="{% url 'cv' %}">Resume</a>
           <a href="{% url 'contact' %}">Contact</a>
         </div>
@@ -272,7 +281,7 @@
       </div>
       <div class="socials">
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/Maxwel12744"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -290,7 +299,7 @@
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/your-username/"
+          href="https://www.linkedin.com/in/maxwel-odhiambo-0a1852388"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -307,6 +316,7 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your real X/Twitter handle, or delete this link -->
         <a
           href="https://twitter.com/your-username"
           target="_blank"
@@ -325,6 +335,7 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your real Instagram handle, or delete this link -->
         <a
           href="https://instagram.com/your-username"
           target="_blank"

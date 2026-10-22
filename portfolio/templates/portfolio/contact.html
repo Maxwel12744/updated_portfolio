@@ -1,4 +1,4 @@
-{% load static %} {% load static %}
+{% load static %}
 <!doctype html>
 <html lang="en" data-theme="dark">
   <head>
@@ -9,26 +9,35 @@
     <!-- SEO -->
     <meta
       name="description"
-      content="Get in touch with Odhiambo Maxwel — full-stack developer and UX designer open to freelance work, collaborations, and full-time opportunities."
+      content="Get in touch with Odhiambo Maxwel, a Computer Science student at Multimedia University of Kenya building web projects with Django and MySQL."
     />
     <meta name="author" content="Odhiambo Maxwel" />
     <meta name="robots" content="index, follow" />
     <link
       rel="canonical"
-      href="https://your-username.github.io/portfolio/contact.html"
+      href="https://odhiambo-maxwel.vercel.app{% url 'contact' %}"
     />
 
-    <!-- Open Graph -->
+    <!-- Preview card for WhatsApp, LinkedIn and other social apps -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Odhiambo Maxwel" />
     <meta property="og:title" content="Contact | Odhiambo Maxwel" />
     <meta
       property="og:description"
-      content="Get in touch with Odhiambo Maxwel — full-stack developer and UX designer open to freelance work, collaborations, and full-time opportunities."
+      content="Get in touch with Odhiambo Maxwel, a Computer Science student at Multimedia University of Kenya building web projects with Django and MySQL."
     />
-    <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://your-username.github.io/portfolio/contact.html"
+      content="https://odhiambo-maxwel.vercel.app{% url 'contact' %}"
     />
+    <meta
+      property="og:image"
+      content="https://odhiambo-maxwel.vercel.app{% static 'portfolio/images/preview.jpg' %}"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Odhiambo Maxwel" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,6 +46,7 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
     <!-- Favicon -->
     <link
       rel="icon"
@@ -53,11 +63,11 @@
         <a href="{% url 'home' %}" class="nav-brand">OM</a>
 
         <div class="nav-links" id="nav-links">
-          <a href="{% url 'home' %}" class="active">Home</a>
+          <a href="{% url 'home' %}">Home</a>
           <a href="{% url 'about' %}">About</a>
           <a href="{% url 'projects' %}">Projects</a>
           <a href="{% url 'cv' %}">Resume</a>
-          <a href="{% url 'contact' %}">Contact</a>
+          <a href="{% url 'contact' %}" class="active">Contact</a>
         </div>
 
         <div class="nav-controls">
@@ -125,7 +135,7 @@
             </p>
 
             <div class="info-items">
-              <!-- TODO: Replace with your actual email address -->
+              <!-- Email -->
               <a
                 href="https://mail.google.com/mail/?view=cm&to=maxochieng07@gmail.com"
                 target="_blank"
@@ -156,9 +166,9 @@
                 </div>
               </a>
 
-              <!-- TODO: Replace with your actual LinkedIn URL -->
+              <!-- TODO: replace YOUR-LINKEDIN-USERNAME with the end of your LinkedIn profile address -->
               <a
-                href="https://www.linkedin.com/in/your-username/"
+                href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="info-item text-link-card"
@@ -183,7 +193,6 @@
                 </div>
               </a>
 
-              <!-- TODO: Replace with your actual location -->
               <!-- Location -->
               <div class="info-item text-link-card" style="cursor: default">
                 <div class="info-icon">
@@ -316,7 +325,7 @@
       </div>
       <div class="socials">
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/Maxwel12744"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -333,8 +342,9 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace YOUR-LINKEDIN-USERNAME with your LinkedIn profile name -->
         <a
-          href="https://www.linkedin.com/in/your-username/"
+          href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -351,6 +361,7 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your X (Twitter) name, or delete this link -->
         <a
           href="https://twitter.com/your-username"
           target="_blank"
@@ -369,6 +380,7 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your Instagram name, or delete this link -->
         <a
           href="https://instagram.com/your-username"
           target="_blank"

@@ -9,26 +9,35 @@
     <!-- SEO -->
     <meta
       name="description"
-      content="View and download Odhiambo Maxwel's resume. Full-stack developer and UX designer with a Master's in HCI and AWS Developer certification."
+      content="View and download the resume of Odhiambo Maxwel, a full-stack developer and UX designer."
     />
     <meta name="author" content="Odhiambo Maxwel" />
     <meta name="robots" content="index, follow" />
     <link
       rel="canonical"
-      href="https://your-username.github.io/portfolio/resume.html"
+      href="https://odhiambo-maxwel.vercel.app{% url 'cv' %}"
     />
 
-    <!-- Open Graph -->
+    <!-- Link preview card (WhatsApp, LinkedIn, Facebook, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Odhiambo Maxwel" />
     <meta property="og:title" content="Resume | Odhiambo Maxwel" />
     <meta
       property="og:description"
-      content="Full-stack developer and UX designer with a Master's in HCI and AWS Developer certification."
+      content="View and download the resume of Odhiambo Maxwel, a full-stack developer and UX designer."
     />
-    <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://your-username.github.io/portfolio/resume.html"
+      content="https://odhiambo-maxwel.vercel.app{% url 'cv' %}"
     />
+    <meta
+      property="og:image"
+      content="https://odhiambo-maxwel.vercel.app{% static 'portfolio/images/preview.jpg' %}"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Odhiambo Maxwel" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,10 +62,10 @@
         <a href="{% url 'home' %}" class="nav-brand">OM</a>
 
         <div class="nav-links" id="nav-links">
-          <a href="{% url 'home' %}" class="active">Home</a>
+          <a href="{% url 'home' %}">Home</a>
           <a href="{% url 'about' %}">About</a>
           <a href="{% url 'projects' %}">Projects</a>
-          <a href="{% url 'cv' %}">Resume</a>
+          <a href="{% url 'cv' %}" class="active">Resume</a>
           <a href="{% url 'contact' %}">Contact</a>
         </div>
 
@@ -112,7 +121,6 @@
         </p>
 
         <div class="resume-actions" style="margin-bottom: 3rem">
-          <!-- TODO: Replace the href with the path to your actual resume PDF -->
           <a
             href="{% static 'portfolio/documents/resume2.pdf' %}"
             class="btn-primary"
@@ -138,7 +146,6 @@
         </div>
 
         <div class="resume-container">
-          <!-- TODO: Replace the src with the path to your actual resume PDF -->
           <iframe
             src="{% static 'portfolio/documents/resume2.pdf' %}"
             class="resume-frame"
@@ -157,7 +164,7 @@
       </div>
       <div class="socials">
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/Maxwel12744"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -175,7 +182,7 @@
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/your-username/"
+          href="https://www.linkedin.com/in/maxwel-odhiambo-0a1852388"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -192,6 +199,7 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your real X/Twitter handle, or delete this link -->
         <a
           href="https://twitter.com/your-username"
           target="_blank"
@@ -210,6 +218,7 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your real Instagram handle, or delete this link -->
         <a
           href="https://instagram.com/your-username"
           target="_blank"

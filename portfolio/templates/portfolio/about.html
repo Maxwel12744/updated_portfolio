@@ -1,4 +1,4 @@
-{% load static %} {% load static %}
+{% load static %}
 <!doctype html>
 <html lang="en" data-theme="dark">
   <head>
@@ -9,26 +9,35 @@
     <!-- SEO -->
     <meta
       name="description"
-      content="Learn about Odhiambo Maxwel — a full-stack developer and UX designer with a background in computer science, user experience, and product development."
+      content="About Odhiambo Maxwel, a Computer Science student at Multimedia University of Kenya and full-stack developer building with Python, Django, MySQL, HTML, CSS and JavaScript."
     />
     <meta name="author" content="Odhiambo Maxwel" />
     <meta name="robots" content="index, follow" />
     <link
       rel="canonical"
-      href="https://your-username.github.io/portfolio/about.html"
+      href="https://odhiambo-maxwel.vercel.app{% url 'about' %}"
     />
 
-    <!-- Open Graph -->
+    <!-- Link preview card (WhatsApp, LinkedIn, Facebook, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Odhiambo Maxwel" />
     <meta property="og:title" content="About | Odhiambo Maxwel" />
     <meta
       property="og:description"
-      content="Learn about Odhiambo Maxwel — a full-stack developer and UX designer with a background in computer science and product development."
+      content="About Odhiambo Maxwel, a Computer Science student at Multimedia University of Kenya and full-stack developer building with Python, Django, MySQL, HTML, CSS and JavaScript."
     />
-    <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://your-username.github.io/portfolio/about.html"
+      content="https://odhiambo-maxwel.vercel.app{% url 'about' %}"
     />
+    <meta
+      property="og:image"
+      content="https://odhiambo-maxwel.vercel.app{% static 'portfolio/images/preview.jpg' %}"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Odhiambo Maxwel" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Favicon -->
     <link
@@ -51,11 +60,11 @@
   <body>
     <nav class="navbar" id="navbar">
       <div class="nav-container">
-        <a href="{% url 'home' %}" class="nav-brand">OM.</a>
+        <a href="{% url 'home' %}" class="nav-brand">OM</a>
 
         <div class="nav-links" id="nav-links">
-          <a href="{% url 'home' %}" class="active">Home</a>
-          <a href="{% url 'about' %}">About</a>
+          <a href="{% url 'home' %}">Home</a>
+          <a href="{% url 'about' %}" class="active">About</a>
           <a href="{% url 'projects' %}">Projects</a>
           <a href="{% url 'cv' %}">Resume</a>
           <a href="{% url 'contact' %}">Contact</a>
@@ -170,54 +179,49 @@
                 />
                 <img
                   src="{% static 'portfolio/images/AI board.jpg' %}"
-                  alt="Modern tech office workspace"
+                  alt="AI board"
                   class="carousel-slide"
                   loading="lazy"
                 />
                 <img
                   src="{% static 'portfolio/images/gitex.jpg' %}"
-                  alt="Team collaboration and brainstorming"
+                  alt="GITEX event"
                   class="carousel-slide"
                   loading="lazy"
                 />
                 <img
                   src="{% static 'portfolio/images/gruopphoto.jpg' %}"
-                  alt="Tech conference and professional development"
+                  alt="Group photo"
                   class="carousel-slide"
                   loading="lazy"
-                /><img
+                />
+                <img
                   src="{% static 'portfolio/images/kibe.jpg' %}"
-                  alt="Modern tech office workspace"
+                  alt="Kibe"
                   class="carousel-slide"
                   loading="lazy"
                 />
                 <img
                   src="{% static 'portfolio/images/tag.jpg' %}"
-                  alt="Team collaboration and brainstorming"
+                  alt="Tag"
                   class="carousel-slide"
                   loading="lazy"
                 />
                 <img
                   src="{% static 'portfolio/images/mapmaven.jpg' %}"
-                  alt="Tech conference and professional development"
-                  class="carousel-slide"
-                  loading="lazy"
-                />
-                <img
-                  src="{% static 'portfolio/images/kibe.jpg' %}"
-                  alt="Modern tech office workspace"
+                  alt="MapMaven"
                   class="carousel-slide"
                   loading="lazy"
                 />
                 <img
                   src="{% static 'portfolio/images/muslim.jpg' %}"
-                  alt="Team collaboration and brainstorming"
+                  alt="Muslim"
                   class="carousel-slide"
                   loading="lazy"
                 />
                 <img
                   src="{% static 'portfolio/images/odoo.jpg' %}"
-                  alt="Tech conference and professional development"
+                  alt="Odoo"
                   class="carousel-slide"
                   loading="lazy"
                 />
@@ -272,7 +276,7 @@
               <div class="exp-item">
                 <span class="exp-year">2024 - 2025</span>
                 <div class="exp-details">
-                  <h3>Full-stack developement</h3>
+                  <h3>Full-stack development</h3>
                   <p>Sololearn Learning Project</p>
                 </div>
               </div>
@@ -328,7 +332,7 @@
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/maxwel-odhiambo-0a1852388/"
+          href="https://www.linkedin.com/in/maxwel-odhiambo-0a1852388"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -345,8 +349,9 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your real X/Twitter handle, or delete this link -->
         <a
-          href="https://twitter.com/Odhiambo Maxwel"
+          href="https://twitter.com/your-username"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Twitter / X"
@@ -364,7 +369,7 @@
           </svg>
         </a>
         <a
-          href="https://instagram.com/Maxmilliano360#"
+          href="https://instagram.com/Maxmilliano360"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"

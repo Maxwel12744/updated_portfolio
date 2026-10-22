@@ -1,34 +1,41 @@
-{% load static %} {% load static %}
+{% load static %}
 <!doctype html>
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Odhiambo Maxwel | Full-Stack Developer & UX Designer</title>
+    <title>Odhiambo Maxwel | Full-Stack Developer &amp; UX Designer</title>
 
     <!-- SEO -->
     <meta
       name="description"
-      content="Odhiambo Maxwel is a full-stack developer and UX designer crafting clean, performant web experiences. Available for freelance and full-time opportunities."
+      content="Full-stack developer and UX designer building fast, accessible and beautiful digital products."
     />
     <meta name="author" content="Odhiambo Maxwel" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://your-username.github.io/portfolio/" />
+    <link rel="canonical" href="https://odhiambo-maxwel.vercel.app/" />
 
-    <!-- Open Graph -->
+    <!-- Link preview card (WhatsApp, LinkedIn, Facebook, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Odhiambo Maxwel" />
     <meta
       property="og:title"
-      content="Odhiambo Maxwel | Full-Stack Developer & UX Designer"
+      content="Odhiambo Maxwel | Full-Stack Developer &amp; UX Designer"
     />
     <meta
       property="og:description"
-      content="Full-stack developer and UX designer building clean, performant web experiences."
+      content="Full-stack developer and UX designer building fast, accessible and beautiful digital products."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://odhiambo-maxwel.vercel.app/" />
     <meta
-      property="og:url"
-      content="https://your-username.github.io/portfolio/"
+      property="og:image"
+      content="https://odhiambo-maxwel.vercel.app{% static 'portfolio/images/preview.jpg' %}"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Odhiambo Maxwel" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <!-- Favicon -->
     <link
       rel="icon"
@@ -150,7 +157,7 @@
       </div>
       <div class="socials">
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/Maxwel12744"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -168,7 +175,7 @@
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/your-username/"
+          href="https://www.linkedin.com/in/maxwel-odhiambo-0a1852388"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -185,6 +192,7 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your real X/Twitter handle, or delete this link -->
         <a
           href="https://twitter.com/your-username"
           target="_blank"
@@ -203,6 +211,7 @@
             />
           </svg>
         </a>
+        <!-- TODO: replace your-username with your real Instagram handle, or delete this link -->
         <a
           href="https://instagram.com/your-username"
           target="_blank"
