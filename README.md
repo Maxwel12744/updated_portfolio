@@ -288,7 +288,7 @@ This project is licensed under the MIT License. Add a `LICENSE` file to the repo
 
 A personal portfolio website built with **Django** and **MySQL**. It presents my profile, skills, projects and curriculum vitae, and lets visitors get in touch through a contact form. Content is managed from the Django admin, so no code changes are needed to add a project or update my CV.
 
-> **Live site:** [add your deployed URL here once it is online]
+> **Live site:** [Odhiambo-Maxwel.vercel.app]
 
 ## Table of contents
 
